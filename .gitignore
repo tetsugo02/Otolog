@@ -29,3 +29,8 @@ xcuserdata/
 *.key
 *.mobileprovision
 *.provisionprofile
+
+# Release output and Python cache
+/dist/
+__pycache__/
+*.pyc

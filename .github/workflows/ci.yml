@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: macOS 15 / ${{ matrix.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            arch: arm64
+          - runner: macos-15-intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Show toolchain
+        run: |
+          sw_vers
+          uname -m
+          xcodebuild -version
+          xcodebuild -showsdks
+      - name: Test release version validation
+        run: python3 Scripts/test-release.py
+      - name: Build Debug
+        run: |
+          mkdir -p build/ci
+          xcodebuild -project Otolog.xcodeproj -scheme Otolog \
+            -configuration Debug -derivedDataPath build build \
+            2>&1 | tee build/ci/debug.log
+      - name: Build Release and run self-tests
+        run: ./Scripts/test.sh 2>&1 | tee build/ci/release-and-tests.log
+      - name: Verify universal app and signature
+        run: python3 Scripts/verify-app.py
+      - name: Upload diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ci-logs-${{ matrix.arch }}
+          path: build/ci/*.log
+          if-no-files-found: ignore
+          retention-days: 7

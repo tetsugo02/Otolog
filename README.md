@@ -1,5 +1,7 @@
 # Otolog
 
+[![CI](https://github.com/tetsugo02/Otolog/actions/workflows/ci.yml/badge.svg)](https://github.com/tetsugo02/Otolog/actions/workflows/ci.yml)
+
 Macの会議音声とマイクを，ひとつの音声ファイルに．
 
 Otologは，Swift／SwiftUIで作ったmacOS向けのメニューバー録音アプリです．Zoom，Microsoft Teams，ブラウザーのGoogle Meetなどの再生音声と，選択したマイクを混合してMac内へ保存します．マイクだけの録音にも対応しています．仮想オーディオドライバー，外部サーバー，クラウドサービスは不要です．
@@ -34,7 +36,7 @@ Otologは，Swift／SwiftUIで作ったmacOS向けのメニューバー録音ア
 | ビルド対象 | Apple Silicon／IntelのUniversal Binary |
 | 外部パッケージ | なし |
 
-配布用の署名・公証済みバイナリーは用意していません．ソースからビルドして使用してください．
+バージョンタグをpushすると，[GitHub Releases](https://github.com/tetsugo02/Otolog/releases)へUniversal版ZIPとSHA-256を開発用Pre-releaseとして公開します．配布物はad-hoc署名で，Developer ID署名・Appleの公証はありません．ソースからのローカルビルドも利用できます．
 
 ## ビルドと起動
 
@@ -89,6 +91,14 @@ open build/Build/Products/Release/Otolog.app
 - AirPods高音質モードとZoomの同時利用，切断・再接続，1時間の実録音，macOS 15／26での実行は未検証です．
 
 録音と回復用音声はMac内に保存します．会議名の取得を有効にした場合は，抽出した名前をファイル名と回復用JSONに使います．Otolog自身が音声やタイトルを外部へ送信する処理はありません．
+
+## CIとRelease
+
+PRとmainへのpushで，macOS 15のApple Silicon・Intel両方に対するDebug／Releaseビルドと自動検証を実行します．Xcodeは16.4を明示的に選択します．
+
+`v0.3.0`のようなタグでは，同じチェックの成功後にUniversal版ZIPとSHA-256を添付したPre-releaseを作成します．タグとアプリのバージョンが一致しない場合は公開しません．mainを指定したReleaseの手動実行では，公開せずパッケージ作成までテストできます．
+
+[公開手順とワークフローの説明](docs/RELEASING.md)
 
 ## 開発・検証
 
