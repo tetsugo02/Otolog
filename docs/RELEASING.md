@@ -11,6 +11,8 @@
 | `macos-15` | Apple Silicon／arm64 | Xcode 16.4 |
 | `macos-15-intel` | Intel／x86_64 | Xcode 16.4 |
 
+IntelのGitHubホストランナーはMetal描画時にアサーションで終了するため，`OTOLOG_SKIP_UI_SNAPSHOTS=1`でUI画像の生成だけを省略します．音声・保存・回復などのテストは省略しません．UI描画はApple Silicon側で実行します．
+
 両方でReleaseのバージョン検証テスト，Debugビルド，Releaseビルド，実アプリの`--self-test`を実行します．Releaseアプリにarm64とx86_64が含まれること，ad-hoc署名の整合性も確認します．診断ログはActionsのArtifactsに7日間保持します．
 
 CIは音声の合成入力を使います．Zoom／Teams／Meetへの参加，録音許可の操作，AirPodsの実録音品質は確認しません．

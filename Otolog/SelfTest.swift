@@ -4,11 +4,17 @@ import CoreAudio
 
 /// Run via the built application executable --self-test. Requires no capture permissions.
 enum SelfTest {
+    static var renderUISnapshots: Bool { ProcessInfo.processInfo.environment["OTOLOG_SKIP_UI_SNAPSHOTS"] != "1" }
     static func require(_ condition: @autoclosure () -> Bool, _ message: String) throws {
         guard condition() else { throw RecorderError("TEST FAILED: \(message)") }
     }
     static func runAndExit() async {
-        do { try await run(); print("PASS: timeline, drift, gaps, mixing, conversion, ALAC segments, export/reload, recovery, microphone mode, meeting detection, JST names, rename safety, meeting titles, compact UI"); exit(0) }
+        do {
+            try await run()
+            print("PASS: timeline, drift, gaps, mixing, conversion, ALAC segments, export/reload, recovery, microphone mode, meeting detection, JST names, rename safety, meeting titles" + (renderUISnapshots ? ", compact UI" : ""))
+            if !renderUISnapshots { print("SKIP: UI snapshots (OTOLOG_SKIP_UI_SNAPSHOTS=1; other self-tests executed)") }
+            exit(0)
+        }
         catch { fputs("\(error)\n", stderr); exit(1) }
     }
     static func run() async throws {
@@ -142,8 +148,10 @@ enum SelfTest {
         let root = FileManager.default.temporaryDirectory.appendingPathComponent("OtologTests-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
         print("Test artifacts:", root.path)
-        try await MeetingPromptController.renderPreview(to: root.appendingPathComponent("meeting-prompt.png"))
-        try await RecorderDesignPreview.render(to: root)
+        if renderUISnapshots {
+            try await MeetingPromptController.renderPreview(to: root.appendingPathComponent("meeting-prompt.png"))
+            try await RecorderDesignPreview.render(to: root)
+        }
         let store = try RecordingStore(destination: root, startedAt: knownDate)
         let manifest = try JSONDecoder().decode(RecordingManifest.self, from: Data(contentsOf: store.directory.appendingPathComponent("Recording.json")))
         try require(manifest.startedAt == knownDate, "original recording date persists for recovery")

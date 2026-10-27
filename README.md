@@ -32,7 +32,7 @@ Otologは，Swift／SwiftUIで作ったmacOS向けのメニューバー録音ア
 | --- | --- |
 | OS | macOS 15以降 |
 | 開発環境 | Xcodeと初期設定の完了 |
-| 確認済みの環境 | macOS 27.0.1，Xcode 27.1，macOS 27 SDK |
+| ローカルで確認済みの環境 | macOS 27.0.1，Xcode 27.1，macOS 27 SDK |
 | ビルド対象 | Apple Silicon／IntelのUniversal Binary |
 | 外部パッケージ | なし |
 
@@ -88,7 +88,7 @@ open build/Build/Products/Release/Otolog.app
 - 会議名は，アプリがウインドウタイトルに公開する情報から取得します．取得できない場合はJST日時を使います．Meetでは会議コードを名前に使う場合があります．
 - ブラウザーの録音には他タブの音声が含まれる場合があります．タブ単位の取得には対応していません．
 - AirPodsの入力・出力同時使用では，Bluetoothの通話モードによる音質制約があります．保存形式では改善しません．AirPods出力＋Mac内蔵／USBマイク入力も選べます．
-- AirPods高音質モードとZoomの同時利用，切断・再接続，1時間の実録音，macOS 15／26での実行は未検証です．
+- AirPods高音質モードとZoomの同時利用，切断・再接続，1時間の実録音，macOS 15での対話操作・実録音，macOS 26での実行は未検証です．
 
 録音と回復用音声はMac内に保存します．会議名の取得を有効にした場合は，抽出した名前をファイル名と回復用JSONに使います．Otolog自身が音声やタイトルを外部へ送信する処理はありません．
 

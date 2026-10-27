@@ -31,6 +31,9 @@ jobs:
       run:
         shell: bash
     env:
+      # Intel hosted VMs cannot render the Metal-backed SwiftUI snapshots.
+      # Keep all audio/storage tests on both architectures; render UI on arm64.
+      OTOLOG_SKIP_UI_SNAPSHOTS: ${{ matrix.arch == 'x86_64' && '1' || '0' }}
       DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
     steps:
       - name: Check out source
