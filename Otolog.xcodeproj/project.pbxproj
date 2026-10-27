@@ -1,0 +1,38 @@
+// !$*UTF8*$!
+{ archiveVersion = 1; classes = {}; objectVersion = 56; objects = {
+4AE4A885EF26CC9F4DA548B8 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+3B1BD0D3E3B196288B17828C = { isa = PBXBuildFile; fileRef = 4AE4A885EF26CC9F4DA548B8; };
+EAD58898A6BDC553DA01FBA0 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSupport.swift; sourceTree = "<group>"; };
+6DD437A34384053BA9712698 = { isa = PBXBuildFile; fileRef = EAD58898A6BDC553DA01FBA0; };
+01E98B0C6ED6743E19491A56 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capture.swift; sourceTree = "<group>"; };
+C8FA759A668F0747E4449BCD = { isa = PBXBuildFile; fileRef = 01E98B0C6ED6743E19491A56; };
+EE530CFC345D0C1069FC41D3 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetection.swift; sourceTree = "<group>"; };
+470A2E688C4DDDF359F08050 = { isa = PBXBuildFile; fileRef = EE530CFC345D0C1069FC41D3; };
+6B1DFB0520D4D0C896F9D08B = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingPrompt.swift; sourceTree = "<group>"; };
+BE4605060C98C8D52E3794B0 = { isa = PBXBuildFile; fileRef = 6B1DFB0520D4D0C896F9D08B; };
+16C126172C5AD547371B4249 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtologApp.swift; sourceTree = "<group>"; };
+2A50A04527F12C9DBB986B5C = { isa = PBXBuildFile; fileRef = 16C126172C5AD547371B4249; };
+D849C2346DC28E7CF350C59C = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+1D3AE450F1D44EAC83751E34 = { isa = PBXBuildFile; fileRef = D849C2346DC28E7CF350C59C; };
+F2983F858A099664C74310FA = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderView.swift; sourceTree = "<group>"; };
+DC941F4AA2A88707C15EAC9D = { isa = PBXBuildFile; fileRef = F2983F858A099664C74310FA; };
+449FC88E8354D8C14605B408 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingOptions.swift; sourceTree = "<group>"; };
+99483BDBCE72920A74633581 = { isa = PBXBuildFile; fileRef = 449FC88E8354D8C14605B408; };
+B6A5AA9C751025323ECEE3DB = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStore.swift; sourceTree = "<group>"; };
+4BA0EBDCB906B011B7E403E9 = { isa = PBXBuildFile; fileRef = B6A5AA9C751025323ECEE3DB; };
+DD0B571ACD9523CB3859BDEC = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfTest.swift; sourceTree = "<group>"; };
+C6D7ADB655320B7DCC6BBE94 = { isa = PBXBuildFile; fileRef = DD0B571ACD9523CB3859BDEC; };
+425E64D5CFC53BBC9371AE16 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+2EFA7722236C8F320C186E12 = { isa = PBXBuildFile; fileRef = 425E64D5CFC53BBC9371AE16; };
+7D1043473D55BFA90E8530D3 = { isa = PBXFileReference; explicitFileType = wrapper.application; path = Otolog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+482182478A3ECD4745BEA917 = { isa = PBXGroup; children = (4AE4A885EF26CC9F4DA548B8,EAD58898A6BDC553DA01FBA0,01E98B0C6ED6743E19491A56,EE530CFC345D0C1069FC41D3,6B1DFB0520D4D0C896F9D08B,16C126172C5AD547371B4249,D849C2346DC28E7CF350C59C,F2983F858A099664C74310FA,449FC88E8354D8C14605B408,B6A5AA9C751025323ECEE3DB,DD0B571ACD9523CB3859BDEC,425E64D5CFC53BBC9371AE16,); path = Otolog; sourceTree = "<group>"; };
+FBDC4F23F93125BBEEAE800C = { isa = PBXGroup; children = (7D1043473D55BFA90E8530D3,); name = Products; sourceTree = "<group>"; };
+B28B7AF69320201D1CF206EB = { isa = PBXGroup; children = (482182478A3ECD4745BEA917,FBDC4F23F93125BBEEAE800C,); sourceTree = "<group>"; };
+BCE16DD0260827ECF338C787 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (3B1BD0D3E3B196288B17828C,6DD437A34384053BA9712698,C8FA759A668F0747E4449BCD,470A2E688C4DDDF359F08050,BE4605060C98C8D52E3794B0,2A50A04527F12C9DBB986B5C,1D3AE450F1D44EAC83751E34,DC941F4AA2A88707C15EAC9D,99483BDBCE72920A74633581,4BA0EBDCB906B011B7E403E9,C6D7ADB655320B7DCC6BBE94,2EFA7722236C8F320C186E12,); runOnlyForDeploymentPostprocessing = 0; };
+7561BFB015D8F536760CB671 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+369E70E1EE7A07C74E211771 = { isa = XCBuildConfiguration; name = Debug; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; SDKROOT = macosx; MACOSX_DEPLOYMENT_TARGET = 15.0; SWIFT_VERSION = 5.0; PRODUCT_NAME = Otolog; PRODUCT_BUNDLE_IDENTIFIER = local.tetsugo.MeetingRecorder; INFOPLIST_FILE = Otolog/Info.plist; CODE_SIGN_ENTITLEMENTS = Otolog/Otolog.entitlements; CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; ENABLE_HARDENED_RUNTIME = YES; ENABLE_APP_SANDBOX = NO; SWIFT_STRICT_CONCURRENCY = targeted; COMBINE_HIDPI_IMAGES = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; DEBUG_INFORMATION_FORMAT = dwarf; }; };
+502D350B1D76FA1259FFDE36 = { isa = XCBuildConfiguration; name = Release; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; SDKROOT = macosx; MACOSX_DEPLOYMENT_TARGET = 15.0; SWIFT_VERSION = 5.0; PRODUCT_NAME = Otolog; PRODUCT_BUNDLE_IDENTIFIER = local.tetsugo.MeetingRecorder; INFOPLIST_FILE = Otolog/Info.plist; CODE_SIGN_ENTITLEMENTS = Otolog/Otolog.entitlements; CODE_SIGN_IDENTITY = "-"; CODE_SIGN_STYLE = Manual; ENABLE_HARDENED_RUNTIME = YES; ENABLE_APP_SANDBOX = NO; SWIFT_STRICT_CONCURRENCY = targeted; COMBINE_HIDPI_IMAGES = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; SWIFT_OPTIMIZATION_LEVEL = "-O"; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; };
+5FB66943637FEB59E5652D81 = { isa = XCConfigurationList; buildConfigurations = (369E70E1EE7A07C74E211771,502D350B1D76FA1259FFDE36,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+0E8A3AD980EC179856012B7E = { isa = PBXNativeTarget; buildConfigurationList = 5FB66943637FEB59E5652D81; buildPhases = (BCE16DD0260827ECF338C787,7561BFB015D8F536760CB671,); buildRules = (); dependencies = (); name = Otolog; productName = Otolog; productReference = 7D1043473D55BFA90E8530D3; productType = "com.apple.product-type.application"; };
+98F54143AB4E86B28C3AFEE0 = { isa = PBXProject; attributes = { LastUpgradeCheck = 2710; }; buildConfigurationList = 5FB66943637FEB59E5652D81; compatibilityVersion = "Xcode 14.0"; developmentRegion = ja; knownRegions = (ja,en,Base); mainGroup = B28B7AF69320201D1CF206EB; productRefGroup = FBDC4F23F93125BBEEAE800C; projectDirPath = ""; projectRoot = ""; targets = (0E8A3AD980EC179856012B7E,); };
+}; rootObject = 98F54143AB4E86B28C3AFEE0; }

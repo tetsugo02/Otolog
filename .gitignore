@@ -1,0 +1,31 @@
+# Build products
+/build/
+/DerivedData/
+/.build/
+.swiftpm/
+
+# Xcode and macOS local state
+.DS_Store
+xcuserdata/
+*.xcuserstate
+
+# Recordings and recovery data
+*.recording/
+*.m4a
+*.caf
+*.wav
+*.aiff
+*.aif
+*.mp3
+*.mp4
+
+# Local credentials and signing files
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.pem
+*.key
+*.mobileprovision
+*.provisionprofile
